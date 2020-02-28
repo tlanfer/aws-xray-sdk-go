@@ -12,6 +12,8 @@ const (
 	EBServiceName  = "elastic_beanstalk"
 	EC2ServiceName = "ec2"
 	ECSServiceName = "ecs"
+
+	CloudwatchLogsServiceName = "cloudwatch_logs"
 )
 
 // InstancePluginMetadata points to the PluginMetadata struct.
@@ -30,6 +32,8 @@ type PluginMetadata struct {
 
 	// ECSMetadata records the ECS container ID.
 	ECSMetadata *ECSMetadata
+
+	CloudwatchLogsMetadata []CloudwatchLogsMetadata
 
 	// Origin records original service of the segment.
 	Origin string
@@ -53,4 +57,8 @@ type BeanstalkMetadata struct {
 	Environment  string `json:"environment_name"`
 	VersionLabel string `json:"version_label"`
 	DeploymentID int    `json:"deployment_id"`
+}
+
+type CloudwatchLogsMetadata struct {
+	LogGroup string `json:"log_group"`
 }

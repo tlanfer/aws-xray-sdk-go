@@ -429,6 +429,10 @@ func (seg *Segment) addPlugin(metadata *plugins.PluginMetadata) {
 		seg.GetAWS()[plugins.EBServiceName] = metadata.BeanstalkMetadata
 	}
 
+	if len(metadata.CloudwatchLogsMetadata) > 0 {
+		seg.GetAWS()[plugins.CloudwatchLogsServiceName] = metadata.CloudwatchLogsMetadata
+	}
+
 	if metadata.Origin != "" {
 		seg.Origin = metadata.Origin
 	}

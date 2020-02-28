@@ -36,6 +36,7 @@ func addPluginMetadata(pluginmd *plugins.PluginMetadata) {
 		return
 	}
 
+	pluginmd.CloudwatchLogsMetadata = getLogReferences()
 	pluginmd.EC2Metadata = &plugins.EC2Metadata{InstanceID: doc.InstanceID, AvailabilityZone: doc.AvailabilityZone}
 	pluginmd.Origin = Origin
 }
